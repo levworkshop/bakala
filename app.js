@@ -3,7 +3,7 @@ function addTax(price) {
         throw Error('Nothing is for free! please supply a price');
     }
 
-    const vat = 1.17;
+    const vat = 1.17; // = maam
     const total = (price * vat).toFixed(2);
     return total;
 }
@@ -53,7 +53,7 @@ function displayProduct() {
                 <div class="card-body">
                     <h5 class="card-title">${prod.name}</h5>
                     <p class="card-text">
-                        ${prod.price}</p>
+                        ${addTax(prod.price)}</p>
                     <a href="#" class="btn btn-primary">View Details</a>
                 </div>
             </div>`;
