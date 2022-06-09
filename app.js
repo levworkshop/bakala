@@ -26,30 +26,28 @@ const products = [
         id: 1,
         price: 15,
         name: 'yellow cheese',
-        image: 'https://cdn.pixabay.com/photo/2016/03/05/19/24/cheese-1238395_960_720.jpg',
+        image: '2016/03/05/19/24/cheese-1238395_960_720.jpg',
         description: 'great product really!',
     },
     {
         id: 2,
         price: 3,
         name: 'ice cream',
-        image: 'https://cdn.pixabay.com/photo/2017/04/18/15/10/strawberry-ice-cream-2239377_640.jpg',
+        image: '2017/04/18/15/10/strawberry-ice-cream-2239377_640.jpg',
         description: 'be careful - very cold',
     },
 ];
 
+
 function displayProduct() {
+    const IMG_PATH = 'https://cdn.pixabay.com/photo/'; // configuration of the project
     const container = document.getElementById('products-container');
-
-    // syntax: arr.forEach(item => {});
-
-    // item => {};
-    // function(item){}
+    let html = '';
 
     products.forEach(prod => {
-        container.innerHTML +=
+        html +=
             `<div class="card" style="width: 18rem;">
-                <img src="${prod.image}"
+                <img src="${IMG_PATH}${prod.image}"
                     class="card-img-top" alt="${prod.description}">
                 <div class="card-body">
                     <h5 class="card-title">${prod.name}</h5>
@@ -60,7 +58,7 @@ function displayProduct() {
             </div>`;
     })
 
-
+    container.innerHTML = html;
 }
 
 displayProduct();
