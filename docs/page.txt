@@ -3,7 +3,7 @@
 3) Components + Presentation
 
 Components:
-- list of products: price, name, image,description
+- list of products: id, price, name, image,description
     * bootstrap cards
 - title + total number of products
     * bootstrap H1, H2... css
