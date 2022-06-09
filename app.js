@@ -16,7 +16,7 @@ function generateId() {
     // const floor = Math.floor(num);
     // console.log(`floor: ${floor}`);
     // return floor;
-    
+
     const time = new Date().getTime();
     return Math.floor(Math.random() * time);
 }
@@ -41,14 +41,26 @@ const products = [
 function displayProduct() {
     const container = document.getElementById('products-container');
 
-    container.innerHTML = `<div class="card" style="width: 18rem;">
-    <img src="https://cdn.pixabay.com/photo/2016/03/05/19/24/cheese-1238395_960_720.jpg"
-        class="card-img-top" alt="description of the product">
-    <div class="card-body">
-        <h5 class="card-title">Yellow Cheese</h5>
-        <p class="card-text">
-            $15.00</p>
-        <a href="#" class="btn btn-primary">View Details</a>
-    </div>
-</div>`;
+    // syntax: arr.forEach(item => {});
+
+    // item => {};
+    // function(item){}
+
+    products.forEach(prod => {
+        container.innerHTML +=
+            `<div class="card" style="width: 18rem;">
+                <img src="${prod.image}"
+                    class="card-img-top" alt="${prod.description}">
+                <div class="card-body">
+                    <h5 class="card-title">${prod.name}</h5>
+                    <p class="card-text">
+                        ${prod.price}</p>
+                    <a href="#" class="btn btn-primary">View Details</a>
+                </div>
+            </div>`;
+    })
+
+
 }
+
+displayProduct();
