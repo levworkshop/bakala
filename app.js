@@ -9,20 +9,28 @@ function addTax(price) {
 }
 
 function generateId() {
+    // const rand = Math.random();
+    // console.log(`rand: ${rand}`);
+    // const num = rand * 100000;
+    // console.log(`num: ${num}`);
+    // const floor = Math.floor(num);
+    // console.log(`floor: ${floor}`);
+    // return floor;
+
     const time = new Date().getTime();
     return Math.floor(Math.random() * time);
 }
 
 const products = [
     {
-        id: generateId(),
+        id: 1,
         price: 15,
         name: 'yellow cheese',
         image: '2016/03/05/19/24/cheese-1238395_960_720.jpg',
         description: 'great product really!',
     },
     {
-        id: generateId(),
+        id: 2,
         price: 3,
         name: 'ice cream',
         image: '2017/04/18/15/10/strawberry-ice-cream-2239377_640.jpg',
@@ -31,8 +39,10 @@ const products = [
 ];
 
 
-function getProductsTemplate() {
+// take products data and add it into the html of each card
+function displayProduct() {
     const IMG_PATH = 'https://cdn.pixabay.com/photo/'; // configuration of the project
+    const container = document.getElementById('products-container');
     let html = '';
 
     products.forEach(prod => {
@@ -42,20 +52,13 @@ function getProductsTemplate() {
                     class="card-img-top" alt="${prod.description}">
                 <div class="card-body">
                     <h5 class="card-title">${prod.name}</h5>
-                    <p class="card-text">$
-                        ${addTax(prod.price)}</p>
+                    <p class="card-text">
+                        ${prod.price}</p>
                     <a href="#" class="btn btn-primary">View Details</a>
                 </div>
             </div>`;
     })
 
-    return html;
-}
-
-
-function displayProduct() {
-    const container = document.getElementById('products-container');
-    const html = getProductsTemplate();
     container.innerHTML = html;
 }
 
