@@ -19,7 +19,7 @@ Components:
 Actions: 
 - user is sorting, 
     * JS eventLIstener
-- user is filtering
+- user is search
     * JS eventLIstener
 - on screen load display number of products in store
 
