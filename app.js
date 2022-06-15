@@ -9,14 +9,6 @@ function addTax(price) {
 }
 
 function generateId() {
-    // const rand = Math.random();
-    // console.log(`rand: ${rand}`);
-    // const num = rand * 100000;
-    // console.log(`num: ${num}`);
-    // const floor = Math.floor(num);
-    // console.log(`floor: ${floor}`);
-    // return floor;
-
     const time = new Date().getTime();
     return Math.floor(Math.random() * time);
 }
@@ -40,7 +32,7 @@ const products = [
 
 
 // take products data and add it into the html of each card
-function displayProduct() {
+function displayProducts() {
     const IMG_PATH = 'https://cdn.pixabay.com/photo/'; // configuration of the project
     const container = document.getElementById('products-container');
     let html = '';
@@ -62,4 +54,4 @@ function displayProduct() {
     container.innerHTML = html;
 }
 
-displayProduct();
+displayProducts();
