@@ -28,7 +28,23 @@ const products = [
         image: '2017/04/18/15/10/strawberry-ice-cream-2239377_640.jpg',
         description: 'be careful - very cold',
     },
+    {
+        id: 3,
+        price: 55,
+        name: 'aaa',
+        image: '2017/04/18/15/10/strawberry-ice-cream-2239377_640.jpg',
+        description: '',
+    },
 ];
+
+
+
+
+
+function getTotalProducts() {
+    const total = document.getElementById('total-products');
+    total.innerHTML = products.length;
+}
 
 
 // take products data and add it into the html of each card
@@ -38,6 +54,8 @@ function displayProducts() {
     let html = '';
 
     products.forEach(prod => {
+        console.log(`${IMG_PATH}${prod.image}`);
+
         html +=
             `<div class="card" style="width: 18rem;">
                 <img src="${IMG_PATH}${prod.image}"
@@ -52,6 +70,7 @@ function displayProducts() {
     })
 
     container.innerHTML = html;
+    getTotalProducts();
 }
 
 displayProducts();
