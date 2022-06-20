@@ -48,13 +48,8 @@ function searchProduct() {
             .includes(searchTerm.toLowerCase())
     });
 
-    // console.log(searchResult); // = []
-    console.log('2) after search - call to function with search result');
     displayProducts(searchResult);
 }
-
-
-
 
 
 function getTotalProducts() {
@@ -65,15 +60,11 @@ function getTotalProducts() {
 
 // take products data and add it into the html of each card
 function displayProducts(productData) {
-    console.log(`inside function) productData: ${productData}`);
-
     const IMG_PATH = 'https://cdn.pixabay.com/photo/'; // configuration of the project
     const container = document.getElementById('products-container');
     let html = '';
 
     productData.forEach(prod => {
-        console.log(`${IMG_PATH}${prod.image}`);
-
         html +=
             `<div class="card" style="width: 18rem;">
                 <img src="${IMG_PATH}${prod.image}"
@@ -91,5 +82,5 @@ function displayProducts(productData) {
     getTotalProducts();
 }
 
-console.log(`1) on page load - call the function with ALL the products`);
+// call the first function
 displayProducts(products);
