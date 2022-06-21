@@ -1,17 +1,5 @@
 import { products } from './data-modules/products.js';
 
-
-// todo: use this function
-function addTax(price) {
-    if (!price || price <= 0 || typeof (price) === 'string') {
-        throw Error('Nothing is for free! please supply a price');
-    }
-
-    const vat = 1.17; // = maam
-    const total = (price * vat).toFixed(2);
-    return total;
-}
-
 /*
 window.searchProduct = function() {
     const searchField = document.getElementById('search-field');

@@ -1,3 +1,14 @@
+
+function addTax(price) {
+    if (!price || price <= 0 || typeof (price) === 'string') {
+        throw Error('Nothing is for free! please supply a price');
+    }
+
+    const vat = 1.17; // = maam
+    const total = (price * vat).toFixed(2);
+    return total;
+}
+
 class Product {
     constructor(productPrice, productName, productImage, productDescription) {
         this.price = productPrice;
@@ -15,7 +26,8 @@ class Product {
 
     // for outer user - outside the class
     getPrice() {
-        return `$${this.price}`;
+        const totalPrice = addTax(this.price);
+        return `$${totalPrice}`;
     }
 
     getName() {
