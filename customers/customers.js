@@ -57,3 +57,30 @@ document.getElementById(`get-all-customers-button`)
 // }
 // document.getElementById(`get-customer-button`)
 //     .addEventListener('click', getCustomerById);
+
+
+// 3) Add new customer
+function addCustomer() {
+    const name = document.getElementById(`add-customer-name`).value;
+    const email = document.getElementById(`add-customer-email`).value;
+    const data = { name: name.trim(), email: email.trim() };
+
+    fetch(`${serverUrl}/add-customer.json`, {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(data)
+    })
+
+        .then(res => res.json())
+        .then(json => {
+            document.getElementById(`add-customer-result`)
+                .innerHTML = `New customer added. ${JSON.stringify(json)}`;
+        })
+        .catch(error => {
+            throw Error(error);
+        })
+}
+document.getElementById(`add-customer-button`)
+    .addEventListener(`click`, addCustomer);
