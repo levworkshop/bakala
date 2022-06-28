@@ -8,6 +8,8 @@ function getAllCustomers() {
         .then(res => res.json())
 
         .then(customers => {
+            console.log(customers);
+
             let html = '';
             customers.forEach(singleCustomer => {
                 html += `<tr>
@@ -16,6 +18,9 @@ function getAllCustomers() {
                     <td>${singleCustomer.email}</td>
                 </tr>`;
             });
+            console.log(customers);
+
+
             document.getElementById(`customers-table`).innerHTML = html;
         })
 
